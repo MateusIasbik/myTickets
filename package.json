@@ -9,9 +9,9 @@
     "dev": "ts-node-dev src/index.ts",
     "migration:run": "prisma migrate deploy",
     "test:load-envs": "dotenv -e .env.test",
-	  "test:coverage": "npm run test:load-envs -- jest -- --coverage",
+	  "test:coverage": "npm run test:load-envs -- jest -- --coverage --runInBand",
     "test:migration:run": "npm run test:load-envs prisma migrate deploy",
-    "test": "npm run test:load-envs jest"
+    "test": "npm run test:load-envs jest --runInBand"
   },
   "keywords": [],
   "author": "",
