@@ -29,7 +29,6 @@ describe("POST /events", () => {
         }
 
         const { status } = await api.post(`/events`).send(newData);
-        
         expect(status).toBe(httpStatus.CONFLICT);
     });
 
@@ -76,7 +75,7 @@ describe("GET / events/:id", () => {
         const { status } = await api.get(`/events/${eventFake.id}`);
         expect(status).toBe(httpStatus.NOT_FOUND);
     });
-
+    
 });
 
 describe("PUT /events/:id", () => {

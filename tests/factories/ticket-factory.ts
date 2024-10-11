@@ -10,7 +10,6 @@ export async function createNewTicketTest(eventId: number) {
             eventId
         }
     });
-
 }
 
 export async function createTicketData(eventId: number) {
@@ -33,4 +32,19 @@ export async function updateDataTicketsTest() {
         owner: faker.person.fullName(),
         used: faker.datatype.boolean()
     }
+}
+
+export async function updateFakeTicketUsed() {
+    return {
+        code: faker.string.uuid(),
+        owner: faker.person.fullName(),
+        used: true
+    }
+}
+
+export async function markTicketAsUsed(ticketId) {
+    return await prisma.ticket.update({
+        where: { id: ticketId },
+        data: { used: true }
+    });
 }

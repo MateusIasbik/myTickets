@@ -2,14 +2,21 @@ import prisma from "database";
 import { faker } from "@faker-js/faker";
 
 export async function createNewEventTest() {
-    const event = await prisma.event.create({
+    return await prisma.event.create({
         data: {
             name: faker.person.fullName(),
             date: faker.date.future()
         }
     });
+}
 
-    return event;
+export async function createNewEventWithPastDate() {
+    return await prisma.event.create({
+        data: {
+            name: faker.person.fullName(),
+            date: faker.date.past()
+        }
+    });
 }
 
 export async function createEventTestWithoutId() {
