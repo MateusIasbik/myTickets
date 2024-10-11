@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "npm run migration:run && npm run seed && node dist/src/index.js",
-    "dev": "ts-node-dev src/index.ts",
+    "dev": "ts-node-dev src/server.ts",
     "migration:run": "prisma migrate deploy",
     "test:load-envs": "dotenv -e .env.test",
 	  "test:coverage": "npm run test:load-envs -- jest -- --coverage --runInBand",
